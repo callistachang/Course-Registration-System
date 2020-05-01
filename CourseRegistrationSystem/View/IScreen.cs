@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CourseRegistrationSystem.View
 {
-    public interface IDashboard
+    public interface IScreen
     {
         public void Render();
     }

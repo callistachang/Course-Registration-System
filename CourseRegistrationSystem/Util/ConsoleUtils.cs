@@ -55,6 +55,12 @@ namespace CourseRegistrationSystem
             Console.WriteLine(line.PadLeft(line.Length + Console.WindowWidth / 2 - referenceLength / 2));
         }
 
+        public static void Exit(int exitCode)
+        {
+            Log.Info("Exiting...");
+            Environment.Exit(0);
+        }
+
         /// <example>
         /// arg0 arg1 arg2 -- 3 args: "arg0", "arg1", and "arg2"
         /// arg0 arg1 "arg2 arg3" -- 3 args: "arg0", "arg1", and "arg2 arg3"

@@ -8,7 +8,7 @@ namespace CourseRegistrationSystem.Model
 {
     public interface IUser
     {
-        public string GetUsername();
+        public string GetUniqueId();
         public UserType GetUserType();
     }
 }

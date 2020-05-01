@@ -8,9 +8,10 @@ namespace CourseRegistrationSystem.Model
 {
     public class Staff : IUser
     {
+        public string Id;
         public string Username;
 
-        public string GetUsername() => Username;
+        public string GetUniqueId() => Id;
 
         public UserType GetUserType() => UserType.Staff;
     }

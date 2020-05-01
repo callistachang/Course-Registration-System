@@ -8,14 +8,13 @@ namespace CourseRegistrationSystem.Model
 {
     public class Student : IUser
     {
-        public string Username;
         public string MatricNumber;
         public string FullName;
         public int StudyYear;
         public Gender Gender;
         public Nationality Nationality;
 
-        public string GetUsername() => Username;
+        public string GetUniqueId() => MatricNumber;
 
         public UserType GetUserType() => UserType.Student;
     }

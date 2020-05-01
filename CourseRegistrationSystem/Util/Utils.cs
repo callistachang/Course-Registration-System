@@ -33,6 +33,8 @@ namespace CourseRegistrationSystem
                     }
                 }
             } while (key.Key != ConsoleKey.Enter);
+
+            Console.Write(Environment.NewLine);
             return password;
         }
 
@@ -55,6 +57,9 @@ namespace CourseRegistrationSystem
             }
         }
 
+        /// <summary>
+        /// Combine 2 byte arrays.
+        /// </summary>
         private static byte[] Combine(byte[] first, byte[] second)
         {
             byte[] combined = new byte[first.Length + second.Length];

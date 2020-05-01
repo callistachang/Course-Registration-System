@@ -1,20 +1,24 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace CourseRegistrationSystem
 {
-    public class ConsoleView
+    public class ConsoleManager
     {
         public Dictionary<string, Option> Options;
 
-        public ConsoleView()
+        public ConsoleManager()
         {
             Options = new Dictionary<string, Option>();
         }
 
-        public void Start()
+        public void InitializeOptions()
         {
-            Log.Info("Type 'help' for a list of options.");
+            AddOption("help", "Displays this list of options", HandleHelp);
+            AddOption("exit", "Exits the system", HandleExit);
+
+            DisplayHelp();
 
             while (true)
             {
@@ -42,24 +46,41 @@ namespace CourseRegistrationSystem
             }
         }
 
-        public OptionResult HandleHelp(string command, IList<string> args)
+        private OptionResult HandleHelp(string command, IList<string> args)
         {
-            Log.Unimplemented("HandleHelp");
+            DisplayHelp();
             return OptionResult.Okay;
         }
 
+        private OptionResult HandleExit(string command, IList<string> args)
+        {
+            ConsoleUtils.Exit(0);
+            return OptionResult.Okay;
+        }
+
+        private void DisplayHelp()
+        {
+            int maxLength = Options.Values.Max(opt => opt.Name.Length);
+            Log.Info("Available options");
+
+            foreach (Option option in Options.Values.OrderBy(opt => opt.Name))
+            {
+                Log.Info("  {0}  -  {1}", option.Name.PadRight(maxLength), option.Description);
+            }
+        }
+
         #region Helper Functions
-        public void Add(string name, string description, OptionHandler handler)
+        protected void AddOption(string name, string description, OptionHandler handler)
         {
             Options[name] = new Option(name, "", description, handler);
         }
 
-        public void Add(string name, string usage, string description, OptionHandler handler)
+        protected void AddOption(string name, string usage, string description, OptionHandler handler)
         {
             Options[name] = new Option(name, usage, description, handler);
         }
 
-        public Option GetOption(string name)
+        protected Option GetOption(string name)
         {
             Options.TryGetValue(name, out Option option);
             return option;

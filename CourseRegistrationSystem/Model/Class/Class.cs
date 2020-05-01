@@ -12,6 +12,5 @@ namespace CourseRegistrationSystem.Model
         private string IndexNumber;
         private string MaxNumStudents;
         private StudentManager StudentManager;
-        private SlotManager Schedule;
     }
 }
