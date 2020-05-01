@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 
 namespace CourseRegistrationSystem
@@ -20,18 +21,18 @@ namespace CourseRegistrationSystem
             WriteLine(LogLevel.Error, format, args);
         }
 
-        public static void Debug(string format, params object[] args)
+        public static void Debug(string format, int sf = 1, params object[] args)
         {
 #if DEBUG
+            StackFrame caller = new StackFrame(sf, true);
+            format = String.Format("{0}/{1}: {2}", Path.GetFileName(caller.GetFileName()), caller.GetMethod().Name, format);
             WriteLine(LogLevel.Debug, format, args);
 #endif
         }
 
         public static void Debug(object obj)
         {
-#if DEBUG
-            WriteLine(LogLevel.Debug, obj.ToString());
-#endif
+            Debug(obj.ToString(), 2);
         }
 
         public static void Status(string format, params object[] args)
