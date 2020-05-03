@@ -10,14 +10,14 @@ branches:
 
 # set up the development Dockerfile
 before_install:
-    - docker build -t callistachang/CourseRegistrationSystem -f ./Dockerfile.dev .
+    - docker build -t callistachang/courseregistrationsystem -f ./Dockerfile.dev .
 
 # run xunit tests
 script:
-    - docker run callistachang/CourseRegistrationSystem dotnet test
+    - docker run callistachang/courseregistrationsystem dotnet test
 
 # using the production Dockerfile, push the image to Docker Hub
 after_success:
-    - docker build -t callistachang/CourseRegistrationSystem .
+    - docker build -t callistachang/courseregistrationsystem .
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    - docker push callistachang/CourseRegistrationSystem
+    - docker push callistachang/courseregistrationsystem
