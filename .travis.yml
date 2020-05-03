@@ -1,0 +1,23 @@
+sudo: required
+language: csharp
+
+services:
+    - docker
+
+branches:
+    - master
+    - cicd-implementation
+
+# set up the development Dockerfile
+before_install:
+    - docker build -t callistachang/CourseRegistrationSystem -f ./Dockerfile.dev .
+
+# run xunit tests
+script:
+    - docker run callistachang/CourseRegistrationSystem dotnet test
+
+# using the production Dockerfile, push the image to Docker Hub
+after_success:
+    - docker build -t callistachang/CourseRegistrationSystem .
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - docker push callistachang/CourseRegistrationSystem
