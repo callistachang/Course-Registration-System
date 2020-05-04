@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CourseRegistrationSystem.Model
 {
-    public class ClassFactory
+    public class ClassBuilder
     {
         
     }

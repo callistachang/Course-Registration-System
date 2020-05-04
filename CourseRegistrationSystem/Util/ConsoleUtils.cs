@@ -26,31 +26,31 @@ namespace CourseRegistrationSystem
             @"CourseRegistrationSystem by Callista Rossary Chang",
         };
 
-        public static void WriteHeader(ConsoleColor logoColor)
+        public static void PrintHeader(ConsoleColor logoColor)
         {
             Console.ForegroundColor = logoColor;
-            WriteLinesCentered(Logo);
+            PrintLinesCentered(Logo);
             Console.WriteLine();
 
             Console.ForegroundColor = ConsoleColor.White;
-            WriteLinesCentered(Credits);
+            PrintLinesCentered(Credits);
 
             Console.ResetColor();
-            WriteSeperator();
+            PrintSeparator();
         }
 
-        public static void WriteSeperator()
+        public static void PrintSeparator()
         {
             Console.WriteLine("".PadLeft(Console.WindowWidth, '_'));
         }
 
-        private static void WriteLinesCentered(string[] lines)
+        private static void PrintLinesCentered(string[] lines)
         {
             int longestLine = lines.Max(line => line.Length);
-            lines.ToList().ForEach(line => WriteLineCentered(line, longestLine));
+            lines.ToList().ForEach(line => PrintLineCentered(line, longestLine));
         }
 
-        private static void WriteLineCentered(string line, int referenceLength)
+        private static void PrintLineCentered(string line, int referenceLength)
         {
             Console.WriteLine(line.PadLeft(line.Length + Console.WindowWidth / 2 - referenceLength / 2));
         }

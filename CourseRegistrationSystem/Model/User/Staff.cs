@@ -6,13 +6,31 @@ using System.Threading.Tasks;
 
 namespace CourseRegistrationSystem.Model
 {
-    public class Staff : IUser
+    public class Staff : IModel
     {
-        public string Id;
-        public string Username;
+        private string _id;
 
-        public string GetUniqueId() => Id;
+        #region Instance Variables
+        public readonly UserType userType = UserType.Staff;
+        public string Id
+        {
+            get => GetId();
+            private set => _id = value;
+        }
+        public List<Course> CoordinatorCourses { get; set; }
+        public Account Account { get; set; }
+        #endregion
 
-        public UserType GetUserType() => UserType.Staff;
+        public Staff()
+        {
+            Id = Utils.GenerateGuid();
+            CoordinatorCourses = new List<Course>();
+            Account = null;
+        }
+
+        public string GetId()
+        {
+            return _id;
+        }
     }
 }

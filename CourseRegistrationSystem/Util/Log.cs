@@ -6,6 +6,11 @@ namespace CourseRegistrationSystem
 {
     public class Log
     {
+        public static void Invalid()
+        {
+            Log.Info("Invalid option.");
+        }
+
         public static void Info(string format, params object[] args)
         {
             WriteLine(LogLevel.Info, format, args);
@@ -21,6 +26,15 @@ namespace CourseRegistrationSystem
             WriteLine(LogLevel.Error, format, args);
         }
 
+        public static void Error(int messageId)
+        {
+            string message = Constants.GetMessage(messageId);
+            if (message != null)
+                Error(Constants.GetMessage(messageId));
+            else
+                Error("The error message ID does not exist.");
+        }
+
         public static void Debug(string format, int sf = 1, params object[] args)
         {
 #if DEBUG
@@ -32,7 +46,9 @@ namespace CourseRegistrationSystem
 
         public static void Debug(object obj)
         {
+#if DEBUG
             Debug(obj.ToString(), 2);
+#endif
         }
 
         public static void Status(string format, params object[] args)
