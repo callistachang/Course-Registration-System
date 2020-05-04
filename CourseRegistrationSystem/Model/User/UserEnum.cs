@@ -12,11 +12,10 @@ namespace CourseRegistrationSystem.Model
         Staff
     }
 
-    public enum Gender
+    public enum Sex
     {
         Male,
-        Female,
-        Others
+        Female
     }
 
     public enum Nationality

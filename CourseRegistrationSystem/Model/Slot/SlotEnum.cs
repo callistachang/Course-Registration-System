@@ -10,7 +10,8 @@ namespace CourseRegistrationSystem.Model
     {
         Lecture,
         Tutorial,
-        Laboratory
+        Laboratory,
+        Test
     }
 
     public enum DayOfWeek

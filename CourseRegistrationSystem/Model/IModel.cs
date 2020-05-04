@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace CourseRegistrationSystem.Model
 {
-    public enum Day
+    public interface IModel
     {
-        Monday,
-        Tuesday,
-        Wednesday,
-        Thursday,
-        Friday,
-        Saturday
+        public string GetId();
     }
 }
