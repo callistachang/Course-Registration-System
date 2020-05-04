@@ -16,11 +16,7 @@ namespace CourseRegistrationSystem.Model
         private int _yearTaught;
         private Staff _coordinator;
 
-        public string CourseCode
-        {
-            get => GetId();
-            private set { _courseCode = value; }
-        }
+        public string CourseCode { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public School School { get; set; }

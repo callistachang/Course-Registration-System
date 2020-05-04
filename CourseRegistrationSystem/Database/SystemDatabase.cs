@@ -13,7 +13,8 @@ namespace CourseRegistrationSystem.Controller
     {
         private SystemContext Context;
         public StudentManager StudentManager { get; private set; }
-        //public ClassManager ClassManager { get; private set; }
+        public ScheduleManager ScheduleManager { get; private set; }
+        public ClassManager ClassManager { get; private set; }
         //public CourseManager CourseManager { get; private set; }
 
         public void Initialize()
@@ -40,8 +41,9 @@ namespace CourseRegistrationSystem.Controller
 
         private void InitializeManagers(SystemContext context)
         {
-            //StudentManager = new StudentManager(context.Students);
-            //ClassManager = new ClassManager(context.Classes);
+            ScheduleManager = new ScheduleManager(context.Slots, context.CourseSlots, context.ClassSlots);
+            StudentManager = new StudentManager(context.Students);
+            ClassManager = new ClassManager(context.Classes);
         }
 
         public void Save()

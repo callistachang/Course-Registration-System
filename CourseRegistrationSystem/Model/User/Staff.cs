@@ -17,13 +17,17 @@ namespace CourseRegistrationSystem.Model
             get => GetId();
             private set => _id = value;
         }
+        public string FullName { get; set; }
+        public Sex Sex { get; set; }
         public List<Course> CoordinatorCourses { get; set; }
         public Account Account { get; set; }
         #endregion
 
-        public Staff()
+        public Staff(string fullName, Sex sex)
         {
             Id = Utils.GenerateGuid();
+            FullName = fullName;
+            Sex = sex;
             CoordinatorCourses = new List<Course>();
             Account = null;
         }

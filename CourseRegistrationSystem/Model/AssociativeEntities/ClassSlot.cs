@@ -33,5 +33,13 @@ namespace CourseRegistrationSystem.Model
         }
         public string ClassIndex { get; private set; }
         #endregion
+
+        public ClassSlot() { }
+
+        public ClassSlot(Class @class, Slot slot)
+        {
+            _class = @class;
+            _slot = slot;
+        }
     }
 }

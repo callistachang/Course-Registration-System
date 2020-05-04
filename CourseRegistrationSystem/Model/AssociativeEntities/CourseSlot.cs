@@ -33,5 +33,13 @@ namespace CourseRegistrationSystem.Model
         }
         public string CourseCode { get; private set; }
         #endregion
+
+        public CourseSlot() { }
+
+        public CourseSlot(Course course, Slot slot)
+        {
+            _course = course;
+            _slot = slot;
+        }
     }
 }
