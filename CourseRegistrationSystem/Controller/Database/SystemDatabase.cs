@@ -12,7 +12,7 @@ namespace CourseRegistrationSystem.Controller
     public class SystemDatabase
     {
         private SystemContext Context;
-        //public StudentManager StudentManager { get; private set; }
+        public StudentManager StudentManager { get; private set; }
         //public ClassManager ClassManager { get; private set; }
         //public CourseManager CourseManager { get; private set; }
 

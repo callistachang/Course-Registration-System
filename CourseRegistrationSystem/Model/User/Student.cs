@@ -13,17 +13,18 @@ namespace CourseRegistrationSystem.Model
         private string _matricNumber;
 
         public readonly UserType userType = UserType.Student;
-        public string MatricNumber
-        {
-            get => GetId();
-            private set => _matricNumber = value;
-        }
+        public string MatricNumber { get; set; }
         public string FullName { get; set; }
         public int StudyYear { get; set; }
         public Sex Sex { get; set; }
         public Nationality Nationality { get; set; }
         public List<ClassStudent> Classes { get; set; }
         public Account Account { get; set; }
+
+        public Student()
+        {
+            Classes = new List<ClassStudent>();
+        }
 
         public Student(string matricNumber, string fullName, int studyYear, Sex sex, Nationality nationality)
         {

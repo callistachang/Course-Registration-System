@@ -8,13 +8,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CourseRegistrationSystem.Controller
 {
-    public class CourseManager
+    public class ScheduleManager
     {
-        public readonly DbSet<Course> Courses;
+        public readonly DbSet<CourseSlot> Slots;
 
-        public CourseManager(DbSet<Course> courses)
+        public ScheduleManager(DbSet<CourseSlot> slots)
         {
-            Courses = courses;
+            Slots = slots;
         }
     }
 }

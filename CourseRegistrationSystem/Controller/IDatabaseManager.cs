@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CourseRegistrationSystem.Model;
 
 namespace CourseRegistrationSystem.Controller
 {
-    public class SlotManager
+    public interface IDatabaseManager<T>
     {
-        private List<Slot> Slots;
+        public bool Get(string identifier, out T obj);
     }
 }
