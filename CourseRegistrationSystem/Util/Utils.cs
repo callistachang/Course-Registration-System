@@ -4,12 +4,46 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CourseRegistrationSystem
 {
     public class Utils
     {
-        public static Encoding Encoding = Encoding.UTF8;
+        public static readonly Encoding Encoding = Encoding.UTF8;
+        public static readonly TimeSpanToStringConverter TimeSpanConverter = new TimeSpanToStringConverter();
+
+        //public static void PrintEnumAsList<T>()
+        //{
+        //    var enums = Enum.GetValues(typeof(T));
+        //    for (int i = 0; i < enums.Length; i++)
+        //    {
+        //        Console.WriteLine("({0}) {1}", i + 1, enums.GetValue(i));
+        //    }
+        //}
+
+        public static string GenerateGuid()
+        {
+            return Guid.NewGuid().ToString();
+        }
+
+        public static bool ReadEnumChoice<T>(out T value)
+        {
+            value = default;
+            var enums = Enum.GetValues(typeof(T));
+            for (int i = 0; i < enums.Length; i++)
+            {
+                Console.WriteLine("({0}) {1}", i + 1, enums.GetValue(i));
+            }
+
+            Console.Write("Choose option: ");
+            int choice;
+            if (int.TryParse(Console.ReadLine(), out choice) && choice <= enums.Length)
+            {
+                value = (T)enums.GetValue(choice - 1);
+            }
+            return value != null;
+        }
 
         public static string ReadPassword()
         {
