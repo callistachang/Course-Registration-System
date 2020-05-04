@@ -62,7 +62,7 @@ namespace CourseRegistrationSystem.View
 
             Console.Write("Sex types: ");
             Sex sex;
-            if (!Utils.ReadEnumChoice<Sex>(out sex))
+            if (!InputUtils.ReadEnumChoice<Sex>(out sex))
             {
                 Log.Error(1);
                 return OptionResult.Break;
@@ -70,7 +70,7 @@ namespace CourseRegistrationSystem.View
 
             Console.Write("Nationality types: ");
             Nationality nationality;
-            if (!Utils.ReadEnumChoice<Nationality>(out nationality))
+            if (!InputUtils.ReadEnumChoice<Nationality>(out nationality))
             {
                 Log.Error(1);
                 return OptionResult.Break;
