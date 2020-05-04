@@ -21,6 +21,7 @@ namespace CourseRegistrationSystem.View
             Log.Info("(2) Log in as staff");
             Log.Info("(3) Register student account");
             Log.Info("(4) Exit");
+            Log.Info("(5) [DEBUG] Generate GUID");
 
             int input;
             while (true)
@@ -41,6 +42,9 @@ namespace CourseRegistrationSystem.View
                         case 4:
                             ConsoleUtils.Exit(0);
                             break;
+                        case 5:
+                            Log.Debug(Utils.GenerateGuid());
+                            break;
                         default:
                             Log.Error("Invalid option.");
                             break;
@@ -58,7 +62,7 @@ namespace CourseRegistrationSystem.View
             Console.Write("Username: ");
             string username = Console.ReadLine();
             Console.Write("Password: ");
-            string password = Utils.ReadPassword();
+            string password = InputUtils.ReadPassword();
 
             Log.Unimplemented("Account exists");
 
@@ -81,9 +85,9 @@ namespace CourseRegistrationSystem.View
             Console.Write("New username: ");
             string username = Console.ReadLine();
             Console.Write("New password: ");
-            string password = Utils.ReadPassword();
+            string password = InputUtils.ReadPassword();
             Console.Write("Confirm password: ");
-            string confirmPassword = Utils.ReadPassword();
+            string confirmPassword = InputUtils.ReadPassword();
 
             Log.Unimplemented("Account created");
 

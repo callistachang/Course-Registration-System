@@ -26,7 +26,7 @@ namespace CourseRegistrationSystem
 
         public static bool IsCourseSlotType(SlotType slotType)
         {
-            return slotType == SlotType.Lecture || slotType == SlotType.Test;
+            return slotType == SlotType.Lecture;
         }
 
         public static bool IsClassSlotType(SlotType slotType)
