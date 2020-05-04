@@ -46,13 +46,13 @@ namespace CourseRegistrationSystem
             }
         }
 
-        private OptionResult HandleHelp(string command, IList<string> args)
+        protected OptionResult HandleHelp(string command, IList<string> args)
         {
             DisplayHelp();
             return OptionResult.Okay;
         }
 
-        private OptionResult HandleExit(string command, IList<string> args)
+        protected OptionResult HandleExit(string command, IList<string> args)
         {
             ConsoleUtils.Exit(0);
             return OptionResult.Okay;
